@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  // errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.createForm();
   }
 
@@ -20,13 +22,15 @@ export class LoginComponent implements OnInit {
 
   private createForm(): FormGroup {
     return this.fb.group({
-      'username': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'email': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
     })
   }
 
   public onLogin() {
-    console.log(this.loginForm.value);
+    this.authService.login(this.loginForm.value).subscribe(data => {
+      this.router.navigateByUrl('auth/register');
+    })
   }
 
 
