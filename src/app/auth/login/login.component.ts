@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   public onLogin() {
     this.authService.login(this.loginForm.value).subscribe(data => {
-      this.router.navigateByUrl('auth/register');
+      this.router.navigateByUrl('pages/admin-home');
     })
   }
 
