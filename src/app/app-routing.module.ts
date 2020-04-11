@@ -4,6 +4,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.component';
+import { CreateCertificateComponent } from './pages/create-certificate/create-certificate.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   }, {
     path: 'pages', component: AuthComponent, children: [
       { path: 'admin-home', component: AdminHomePageComponent },
+      { path: 'create-certificate', component: CreateCertificateComponent },
     ]
   }
 ];

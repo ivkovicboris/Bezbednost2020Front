@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesComponent } from './pages/pages.component';
 import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.component';
+import { CreateCertificateComponent } from './pages/create-certificate/create-certificate.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.
     FooterComponent,
     HeaderComponent,
     AdminHomePageComponent,
-    PagesComponent
+    PagesComponent,
+    CreateCertificateComponent
   ],
   imports: [
     BrowserModule,
