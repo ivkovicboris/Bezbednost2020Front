@@ -29,4 +29,11 @@ export class AdminHomePageComponent implements OnInit {
     return moment(date).format('LLL');
   }
 
+  onRevoke(id) {
+    const body = {};
+    this.certificateService.revokeCertificate(body, id).subscribe(data => {
+      console.log(id);
+      alert('successfully revoked');
+    })
+  }
 }

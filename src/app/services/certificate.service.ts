@@ -20,4 +20,8 @@ export class CertificateService {
     return this.http.get(`${this.baseUrl}certificate/getAll`);
   }
 
+  public revokeCertificate(body, id): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate/revoke/${id}`, body);
+  }
+
 }

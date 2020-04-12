@@ -64,6 +64,7 @@ export class CreateCertificateComponent implements OnInit {
     console.log(payload);
     this.certificateService.createCertificate(payload).subscribe(data => {
       this.router.navigateByUrl('pages/admin-home');
+      alert('successfully created');
     })
   }
 
@@ -75,6 +76,7 @@ export class CreateCertificateComponent implements OnInit {
     console.log(payload);
     this.certificateService.createCertificate(payload).subscribe(data => {
       this.router.navigateByUrl('pages/admin-home');
+      alert('successfully created');
     })
   }
 
@@ -86,6 +88,7 @@ export class CreateCertificateComponent implements OnInit {
     console.log(payload);
     this.certificateService.createCertificate(payload).subscribe(data => {
       this.router.navigateByUrl('pages/admin-home');
+      alert('successfully created');
     })
   }
 

@@ -7,14 +7,18 @@
         <th scope="col">Date Of Issue</th>
         <th scope="col">Expiry Date</th>
         <th scope="col">Type</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of listOfData">
-        <th scope="row">1</th>
+        <th scope="row">{{data.id}}</th>
         <td>{{formatDate(data.datumIzdavanja)}}</td>
         <td>{{formatDate(data.datumIsteka)}}</td>
         <td>{{data.tip}}</td>
+        <td>
+          <button (click)="onRevoke(data.id)" type="button" class="btn btn-secondary">Revoke</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -22,7 +26,5 @@
 
 <div>
   <button (click)="onCreateCertificate()" type="button" class="btn btn-secondary">Create a certificate
-  </button>
-  <button type="button" class="btn btn-secondary">Revoke certifikate
   </button>
 </div>
