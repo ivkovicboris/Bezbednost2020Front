@@ -6,13 +6,13 @@
   <select #select [(ngModel)]="choice" style="width: 30%;">
     <option value="one">ROOT</option>
     <option value="two">PERSON</option>
-    <option value="three">APPLICATION</option>
+    <option value="three">ORGANIZATION</option>
   </select>
 
   <div [ngSwitch]="choice">
     <form *ngSwitchCase="'one'" [formGroup]="rootForm">
-      <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="
-Date Of Issue" formControlName="datumIzdavanja"> <br>
+      <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
+        formControlName="datumIzdavanja"> <br>
       <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
         formControlName="datumIsteka"> <br>
       <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"
@@ -21,12 +21,46 @@ Date Of Issue" formControlName="datumIzdavanja"> <br>
       <input (click)="submitRoot()" type="button" class="fadeIn fourth" class="btn btn-secondary" value="Create">
     </form>
 
-    <form *ngSwitchCase="'two'">
-      <h1>forma 2</h1>
+    <form *ngSwitchCase="'two'" [formGroup]="personForm">
+      <input type="ime" id="ime" class="fadeIn second" name="ime" placeholder="Name" formControlName="ime"> <br>
+      <input type="prezime" id="prezime" class="fadeIn second" name="prezime" placeholder="Surname"
+        formControlName="prezime">
+      <br>
+      <input type="drzava" id="drzava" class="fadeIn second" name="drzava" placeholder="Country"
+        formControlName="drzava">
+      <br>
+      <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email" formControlName="email">
+      <br>
+      <input type="text" id="nadSertifikatId" class="fadeIn second" name="nadSertifikatId"
+        placeholder="Over-certificate" formControlName="nadSertifikatId"> <br>
+      <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
+        formControlName="datumIzdavanja"> <br>
+      <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
+        formControlName="datumIsteka"> <br>
+      <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"
+        placeholder="Name Of Organization" formControlName="nazivOrganizacije"> <br>
+
+
+      <input (click)="submitPerson()" type="button" class="fadeIn fourth" class="btn btn-secondary" value="Create">
     </form>
 
-    <form *ngSwitchCase="'three'">
-      <h1>forma 3</h1>
+    <form *ngSwitchCase="'three'" [formGroup]="organizationForm">
+
+      <input type="text" id="nadSertifikatId" class="fadeIn second" name="nadSertifikatId"
+        placeholder="Over-certificate" formControlName="nadSertifikatId"> <br>
+      <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
+        formControlName="datumIzdavanja"> <br>
+      <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
+        formControlName="datumIsteka"> <br>
+      <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"
+        placeholder="Name Of Organization" formControlName="nazivOrganizacije"> <br>
+      <input type="ptt" id="ptt" class="fadeIn second" name="ptt" placeholder="Ptt" formControlName="ptt"> <br>
+      <input type="adresa" id="adresa" class="fadeIn second" name="adresa" placeholder="Address"
+        formControlName="adresa"> <br>
+
+
+      <input (click)="submitOrganization()" type="button" class="fadeIn fourth" class="btn btn-secondary"
+        value="Create">
     </form>
   </div>
 
