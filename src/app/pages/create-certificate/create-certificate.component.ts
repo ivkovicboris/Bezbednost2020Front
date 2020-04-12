@@ -52,6 +52,7 @@ export class CreateCertificateComponent implements OnInit {
       'nadSertifikatId': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'ptt': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'adresa': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'drzava': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
     })
   }
 
@@ -72,6 +73,9 @@ export class CreateCertificateComponent implements OnInit {
       tip: 'PERSON'
     }
     console.log(payload);
+    this.certificateService.createCertificate(payload).subscribe(data => {
+      this.router.navigateByUrl('pages/admin-home');
+    })
   }
 
   public submitOrganization() {
@@ -80,6 +84,9 @@ export class CreateCertificateComponent implements OnInit {
       tip: 'ORGANIZATION'
     }
     console.log(payload);
+    this.certificateService.createCertificate(payload).subscribe(data => {
+      this.router.navigateByUrl('pages/admin-home');
+    })
   }
 
 }
