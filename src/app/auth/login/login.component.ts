@@ -27,10 +27,20 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
   public onLogin() {
     this.authService.login(this.loginForm.value).subscribe(data => {
+      console.log(data);
+      localStorage.setItem('token', data);
       this.router.navigateByUrl('pages/admin-home');
-    })
+    }
+      // , error => {
+      //   console.log(error.error.text);
+      //   const token = error.error.text;
+      //   localStorage.setItem('token', token);
+      //   this.router.navigateByUrl('pages/admin-home');
+      // }
+    )
   }
 
 

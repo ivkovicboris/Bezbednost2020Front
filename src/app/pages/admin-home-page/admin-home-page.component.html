@@ -7,6 +7,7 @@
         <th scope="col">Date Of Issue</th>
         <th scope="col">Expiry Date</th>
         <th scope="col">Type</th>
+        <th scope="col">Is Revoked</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <td>{{formatDate(data.datumIzdavanja)}}</td>
         <td>{{formatDate(data.datumIsteka)}}</td>
         <td>{{data.tip}}</td>
+        <td>{{data.revoked}}</td>
         <td>
           <button (click)="onRevoke(data.id)" type="button" class="btn btn-secondary">Revoke</button>
         </td>

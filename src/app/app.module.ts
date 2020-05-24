@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagesComponent } from './pages/pages.component';
 import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.component';
 import { CreateCertificateComponent } from './pages/create-certificate/create-certificate.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { CreateCertificateComponent } from './pages/create-certificate/create-ce
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
