@@ -41,7 +41,7 @@ export class CreateCertificateComponent implements OnInit {
       'ime': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'prezime': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'drzava': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'email': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'email': ['', Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")],
     })
   }
 
@@ -91,6 +91,10 @@ export class CreateCertificateComponent implements OnInit {
       this.router.navigateByUrl('pages/admin-home');
       alert('successfully created');
     })
+  }
+
+  get primEmail() {
+    return this.personForm.get('email');
   }
 
 }
