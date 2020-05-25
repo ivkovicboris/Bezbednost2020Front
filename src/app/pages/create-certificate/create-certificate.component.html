@@ -13,8 +13,12 @@
     <form *ngSwitchCase="'one'" [formGroup]="rootForm">
       <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
         formControlName="datumIzdavanja"> <br>
+      <p *ngIf="rootForm.get('datumIzdavanja').hasError('dateVaidator')" class="text-danger">Use format: 'YYYY-MM-DD'
+      </p>
       <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
         formControlName="datumIsteka"> <br>
+      <p *ngIf="rootForm.get('datumIsteka').hasError('dateVaidator')" class="text-danger">Use format: 'YYYY-MM-DD'
+      </p>
       <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"
         placeholder="Name Of Organization" formControlName="nazivOrganizacije"> <br>
 
@@ -35,8 +39,12 @@
         placeholder="Over-certificate" formControlName="nadSertifikatId"> <br>
       <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
         formControlName="datumIzdavanja"> <br>
+      <p *ngIf="personForm.get('datumIzdavanja').hasError('dateVaidator')" class="text-danger">Use format: 'YYYY-MM-DD'
+      </p>
       <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
         formControlName="datumIsteka"> <br>
+      <p *ngIf="personForm.get('datumIsteka').hasError('dateVaidator')" class="text-danger">Use format: 'YYYY-MM-DD'
+      </p>
       <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"
         placeholder="Name Of Organization" formControlName="nazivOrganizacije"> <br>
 
@@ -50,8 +58,14 @@
         placeholder="Over-certificate" formControlName="nadSertifikatId"> <br>
       <input type="text" id="datumIzdavanja" class="fadeIn second" name="datumIzdavanja" placeholder="Date Of Issue"
         formControlName="datumIzdavanja"> <br>
+      <p *ngIf="organizationForm.get('datumIzdavanja').hasError('dateVaidator')" class="text-danger">Use format:
+        'YYYY-MM-DD'
+      </p>
       <input type="datumIsteka" id="datumIsteka" class="fadeIn second" name="datumIsteka" placeholder="Expiry Date"
         formControlName="datumIsteka"> <br>
+      <p *ngIf="organizationForm.get('datumIsteka').hasError('dateVaidator')" class="text-danger">Use format:
+        'YYYY-MM-DD'
+      </p>
       <input type="drzava" id="drzava" class="fadeIn second" name="drzava" placeholder="Country"
         formControlName="drzava"> <br>
       <input type="nazivOrganizacije" id="nazivOrganizacije" class="fadeIn second" name="nazivOrganizacije"

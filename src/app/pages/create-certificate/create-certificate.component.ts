@@ -2,6 +2,7 @@ import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CertificateService } from 'src/app/services/certificate.service';
 import { Router } from '@angular/router';
+import { DateValidator } from 'src/app/date-validator/date.vallidator';
 
 @Component({
   selector: 'app-create-certificate',
@@ -25,16 +26,16 @@ export class CreateCertificateComponent implements OnInit {
 
   private createRootForm(): FormGroup {
     return this.fb.group({
-      'datumIzdavanja': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'datumIsteka': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'datumIzdavanja': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
+      'datumIsteka': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
       'nazivOrganizacije': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
     })
   }
 
   private createPersonForm(): FormGroup {
     return this.fb.group({
-      'datumIzdavanja': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'datumIsteka': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'datumIzdavanja': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
+      'datumIsteka': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
       'nazivOrganizacije': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'nadSertifikatId': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'ime': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -46,8 +47,8 @@ export class CreateCertificateComponent implements OnInit {
 
   private createOrganizationForm(): FormGroup {
     return this.fb.group({
-      'datumIzdavanja': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'datumIsteka': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'datumIzdavanja': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
+      'datumIsteka': ['', Validators.compose([Validators.required, DateValidator.dateVaidator, Validators.minLength(3)])],
       'nazivOrganizacije': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'nadSertifikatId': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'ptt': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
