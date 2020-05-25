@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-  // errorMessage: string = '';
+  errorMessage: string = '';
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.createForm();
@@ -22,11 +22,14 @@ export class LoginComponent implements OnInit {
 
   private createForm(): FormGroup {
     return this.fb.group({
-      'email': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'email': ['', Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
     })
   }
 
+  get primEmail() {
+    return this.loginForm.get('email');
+  }
 
   public onLogin() {
     this.authService.login(this.loginForm.value).subscribe(data => {
@@ -34,12 +37,10 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', data);
       this.router.navigateByUrl('pages/admin-home');
     }
-      // , error => {
-      //   console.log(error.error.text);
-      //   const token = error.error.text;
-      //   localStorage.setItem('token', token);
-      //   this.router.navigateByUrl('pages/admin-home');
-      // }
+      , error => {
+        console.log(error.error);
+        this.errorMessage = error.error;
+      }
     )
   }
 

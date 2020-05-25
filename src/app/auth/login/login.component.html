@@ -11,10 +11,20 @@
 
     <!-- Login Form -->
     <form [formGroup]="loginForm">
-      <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" formControlName="email">
+      <input [class.is-invalid]="loginForm.get('email').invalid && loginForm.get('email').touched" type="text"
+        id="email" class="fadeIn second" name="email" placeholder="email" formControlName="email">
+
+      <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+        <small *ngIf="primEmail.errors?.required" class="text-danger">Primary email is required</small>
+        <!--question mark(?) is a safe navigation operator-->
+        <small *ngIf="primEmail.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+      </div>
+
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"
         formControlName="password">
-      <input (click)="onLogin()" [disabled]="!loginForm.valid" type="submit" class="fadeIn fourth" value="Log In">
+      <input (click)="onLogin()" [disabled]="!loginForm.valid" type="submit" class="fadeIn fourth" value="Log In"> <br>
+      <div class="text-danger">{{errorMessage}}</div>
+
     </form>
     <!-- <div>
       {{errorMessage}}
