@@ -20,7 +20,7 @@
         <small *ngIf="primEmail.errors?.pattern" class="text-danger">Please provide a valid email address</small>
       </div>
 
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password"
         formControlName="password">
       <input (click)="onLogin()" [disabled]="!loginForm.valid" type="submit" class="fadeIn fourth" value="Log In"> <br>
       <div class="text-danger">{{errorMessage}}</div>
@@ -31,7 +31,7 @@
     </div> -->
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" routerLink="/auth/register">Register now?</a>
     </div>
 
   </div>

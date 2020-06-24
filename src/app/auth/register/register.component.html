@@ -1,3 +1,51 @@
-<p>
-  register works!
-</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://pngimage.net/wp-content/uploads/2018/06/registration-logo-png-7.png" id="icon"
+        alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="registerForm">
+      <input type="text" id="name" class="fadeIn second" name="name" placeholder="First name" formControlName="name">
+      <div *ngIf="registerForm.get('name')?.dirty && registerForm.get('name')?.errors" class="text-danger">
+        Please input minimum 3 characters!</div>
+
+      <input type="text" id="surname" class="fadeIn second" name="surname" placeholder="Last name"
+        formControlName="surname">
+      <div *ngIf="registerForm.get('surname')?.dirty && registerForm.get('surname')?.errors" class="text-danger">
+        Please
+        input minimum 3 characters!</div>
+
+      <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" formControlName="email">
+      <div *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors" class="text-danger">
+        Please
+        input your email!</div>
+
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"
+        formControlName="password">
+      <div *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors" class="text-danger">
+        Please
+        input minimum 3 characters!</div>
+
+      <input type="text" id="phoneNumber" class="fadeIn third" name="phoneNumber" placeholder="Phone Number"
+        formControlName="phoneNumber">
+      <div *ngIf="registerForm.get('phoneNumber')?.dirty && registerForm.get('phoneNumber')?.errors"
+        class="text-danger">
+        Please
+        input only numbers(minimum 3)!</div>
+      <input style="height: 50px;" (click)="onRegister()" [disabled]="!registerForm.valid" type="submit"
+        class="fadeIn fourth" value="Register">
+
+    </form>
+    <!-- <div>
+      {{errorMessage}}
+    </div> -->
+    <!-- Remind Passowrd -->
+
+
+  </div>
+</div>
