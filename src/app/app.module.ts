@@ -15,6 +15,7 @@ import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.
 import { CreateCertificateComponent } from './pages/create-certificate/create-certificate.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { ListOfUsersComponent } from './pages/list-of-users/list-of-users.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
     HeaderComponent,
     AdminHomePageComponent,
     PagesComponent,
-    CreateCertificateComponent
+    CreateCertificateComponent,
+    ListOfUsersComponent
   ],
   imports: [
     BrowserModule,

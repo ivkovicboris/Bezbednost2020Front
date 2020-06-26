@@ -25,6 +25,10 @@ export class AdminHomePageComponent implements OnInit {
     this.router.navigateByUrl('pages/create-certificate');
   }
 
+  onListOfUsers() {
+    this.router.navigateByUrl('pages/list-of-users');
+  }
+
   formatDate(date): string {
     return moment(date).format('LLL');
   }

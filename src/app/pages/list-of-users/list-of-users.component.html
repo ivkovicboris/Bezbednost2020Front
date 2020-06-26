@@ -1,0 +1,31 @@
+<div>
+  <h3>List of Users</h3>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of listOfData">
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.surname}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phoneNumber}}</td>
+        <!-- <td>
+          <button (click)="onDelete(data.id)" type="button" class="btn btn-secondary">Delete</button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <button (click)="onBack()" type="button" class="btn btn-secondary" style="margin-left: 0px; width: 30%;">Back
+  </button>
+</div>
