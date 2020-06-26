@@ -31,11 +31,11 @@ export class RegisterComponent implements OnInit {
 
   private createForm(): FormGroup {
     return this.fb.group({
-      email: [null, [Validators.required, Validators.minLength(3)]],
+      email: ['', Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")],
       password: [null, [Validators.required, Validators.minLength(3)]],
       name: [null, [Validators.required, Validators.minLength(3)]],
       surname: [null, [Validators.required, Validators.minLength(3)]],
-      phoneNumber: [null, [Validators.required, Validators.minLength(3)]],
+      phoneNumber: [null, [Validators.required, Validators.minLength(3), Validators.pattern("^[0-9]*$")]]
     });
   }
 

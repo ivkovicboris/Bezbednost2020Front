@@ -22,8 +22,7 @@
 
       <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" formControlName="email">
       <div *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors" class="text-danger">
-        Please
-        input your email!</div>
+        Please provide a valid email address</div>
 
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"
         formControlName="password">
